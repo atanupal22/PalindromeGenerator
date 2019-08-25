@@ -26,7 +26,7 @@ public class PalindromeGenerator {
             
     }
     
-    private boolean checkForPalindrome(String original){
+    public boolean checkForPalindrome(String original){
         String reverse = getReverseString(original);
         
         if (reverse.equals(original)){
@@ -35,7 +35,7 @@ public class PalindromeGenerator {
         return false;
     }
     
-    private String getReverseString(String original){
+    public String getReverseString(String original){
         StringBuilder reverse = new StringBuilder("");
         int length = original.length();
         

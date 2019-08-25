@@ -29,8 +29,10 @@ public class PalindromeGeneratorTest {
     public static void tearDownClass() {
     }
     
+    PalindromeGenerator instance;
     @Before
     public void setUp() {
+        instance = new PalindromeGenerator();
     }
     
     @After
@@ -43,9 +45,10 @@ public class PalindromeGeneratorTest {
      */
     @Test
     public void testGeneratePalindrome_WithPalindromeInput() {
-        System.out.println("generatePalindrome with Palindrome Input");
         String original = "aba";
-        PalindromeGenerator instance = new PalindromeGenerator();
+        
+        System.out.println("generatePalindrome with Palindrome Input");
+
         String expResult = "aba";
         String result = instance.generatePalindrome(original);
         assertEquals(expResult, result);
@@ -57,9 +60,10 @@ public class PalindromeGeneratorTest {
      */
     @Test
     public void testGeneratePalindrome_WithNonPalindromeInput() {
-        System.out.println("generatePalindrome with Non Palindrome Input");
         String original = "ab";
-        PalindromeGenerator instance = new PalindromeGenerator();
+        
+        System.out.println("generatePalindrome with Non Palindrome Input");
+
         String expResult = "aba";
         String result = instance.generatePalindrome(original);
         assertEquals(expResult, result);
@@ -71,13 +75,74 @@ public class PalindromeGeneratorTest {
      */
     @Test
     public void testGeneratePalindrome_WithSingleCharacterInput() {
-        System.out.println("generatePalindrome with single Character Input");
         String original = "a";
-        PalindromeGenerator instance = new PalindromeGenerator();
+        
+        System.out.println("generatePalindrome with single Character Input");
+
         String expResult = "a";
         String result = instance.generatePalindrome(original);
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of checkForPalindrome method, of class PalindromeGenerator.
+     */
+    @Test
+    public void testCheckForPalindrome_WithValidPalindromeAndEvenCharacters() {
+        String original = "abccba";
+        
+        System.out.println("checkForPalindrome with valid palindrome and odd characters :: " + original);
+
+        boolean expResult = true;
+        boolean result = instance.checkForPalindrome(original);
+        assertEquals(expResult, result);
+        
+    }
     
+    /**
+     * Test of checkForPalindrome method, of class PalindromeGenerator.
+     */
+    @Test
+    public void testCheckForPalindrome_WithValidPalindromeAndOddCharacters() {
+        String original = "abcba";
+        
+        System.out.println("checkForPalindrome with valid palindrome and odd characters :: " + original);
+
+        boolean expResult = true;
+        boolean result = instance.checkForPalindrome(original);
+        assertEquals(expResult, result);
+        
+    }
+    
+    /**
+     * Test of checkForPalindrome method, of class PalindromeGenerator.
+     */
+    @Test
+    public void testCheckForPalindrome_WithInValidPalindrome() {
+        String original = "abc";
+        
+        System.out.println("checkForPalindrome with invalid palindrome :: " + original);
+
+        boolean expResult = false;
+        boolean result = instance.checkForPalindrome(original);
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of getReverseString method, of class PalindromeGenerator.
+     */
+    @Test
+    public void testGetReverseString() {
+        String original = "abcde";
+        
+        System.out.println("getReverseString with parameter :: " + original);
+
+        String expResult = "edcba";
+        String result = instance.getReverseString(original);
+        assertEquals(expResult, result);
+        
+    }
+
 }
