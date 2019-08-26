@@ -26,6 +26,11 @@ public class PalindromeGenerator {
             
     }
     
+    /**
+     * Checks if given String is a palindrome or not
+     * @param original - The String to be verified
+     * @return 
+     */
     public boolean checkForPalindrome(String original){
         String reverse = getReverseString(original);
         
@@ -35,6 +40,12 @@ public class PalindromeGenerator {
         return false;
     }
     
+    /**
+     * Returns reverse of a given String, Example : if given String is "abc"
+     * the method will return "cba"
+     * @param original - String to be reversed
+     * @return 
+     */
     public String getReverseString(String original){
         StringBuilder reverse = new StringBuilder("");
         int length = original.length();
@@ -46,6 +57,13 @@ public class PalindromeGenerator {
         return reverse.toString();
     }
     
+    /**
+     * This method always return a palindrome String with minimum length,
+     * if given string is already a palindrome then no change made
+     * or else creates a minimum length palindrome by adding some characters by end of the given String
+     * @param original - The original String from which palindrome to be created
+     * @return 
+     */
     public String generatePalindrome(String original){
         if(checkForPalindrome(original))
             return original;
